@@ -1,0 +1,214 @@
+/* Responsive Styles */
+
+/* Large devices (laptops/desktops, up to 1199px) */
+@media (max-width: 1199px) {
+    html {
+        font-size: 60%;
+    }
+}
+
+/* Medium devices (tablets, up to 991px) */
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+
+    .header {
+        padding: 2rem;
+    }
+
+    section {
+        padding: 3rem 2rem;
+    }
+
+    .home {
+        padding: 3rem 2rem;
+    }
+
+    .home #slide-next,
+    .home #slide-prev {
+        top: 95%;
+    }
+
+    .home #slide-prev {
+        left: auto;
+        right: 8rem;
+    }
+    
+    .footer .box-container {
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 1rem;
+    }
+}
+
+/* Small devices (landscape phones, up to 768px) */
+@media (max-width: 768px) {
+    #search-btn {
+        display: inline-block;
+    }
+
+    .header .search-form {
+        position: absolute;
+        height: 8rem;
+        top: -101%;
+        left: 2%;
+        right: 2.2%;
+        border-radius: 3rem 3rem 0.75rem 0.75rem;
+        background: var(--accent);
+    }
+
+    .header .search-form.active {
+        top: 110%;
+    }
+    
+    .home .slides-container .slide {
+        flex-direction: column;
+    }
+    
+    .home .slides-container .slide .content {
+        text-align: center;
+    }
+    
+    .home .slides-container .slide .content h3 {
+        font-size: 4rem;
+    }
+    
+    .banner-container {
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
+    
+    .product-content {
+        flex-direction: column;
+    }
+    
+    .product-actions .buttons {
+        flex-direction: column;
+    }
+    
+    .about {
+        flex-direction: column;
+    }
+    
+    .contact {
+        flex-direction: column;
+    }
+    
+    .cart-footer {
+        flex-direction: column;
+    }
+    
+    .continue-shopping {
+        margin-bottom: 2rem;
+    }
+    
+    .cart-summary {
+        width: 100%;
+    }
+    
+    .checkout-container {
+        flex-direction: column;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Extra small devices (portrait phones, up to 576px) */
+@media (max-width: 576px) {
+    html {
+        font-size: 50%;
+    }
+
+    .home .slides-container .slide .content h3 {
+        font-size: 3.5rem;
+    }
+
+    .heading {
+        flex-flow: column;
+        gap: 1rem;
+        padding: 3rem;
+    }
+    
+    .banner-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .products .box-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .services .box-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .team .box-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog .box-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer .box-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .cart-table thead {
+        display: none;
+    }
+    
+    .cart-table tbody tr {
+        display: block;
+        padding: 1.5rem 0;
+        position: relative;
+        border-bottom: 1px solid var(--light-secondary);
+    }
+    
+    .cart-table td {
+        display: block;
+        text-align: right;
+        padding: 0.75rem 0;
+        border: none;
+    }
+    
+    .cart-table td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        color: var(--dark-text);
+    }
+    
+    .cart-table .product-col {
+        width: 100%;
+        text-align: left;
+    }
+}
+
+/* Extra extra small devices (smaller phones, up to 400px) */
+@media (max-width: 400px) {
+    .home .slides-container .slide .content h3 {
+        font-size: 3rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 2rem;
+        font-size: 1.5rem;
+    }
+    
+    .header .logo {
+        font-size: 2rem;
+    }
+    
+    .header .icons div {
+        font-size: 2rem;
+        margin-left: 1rem;
+    }
+    
+    .login-form,
+    .shopping-cart,
+    .navbar {
+        width: 30rem;
+    }
+}

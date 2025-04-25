@@ -1,5 +1,8 @@
 /* Main WoodStory Website Stylesheet */
 
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
 /* Import all component styles */
 @import url('base.css');
 @import url('layout.css');
@@ -7,10 +10,8 @@
 @import url('shop-page.css');
 @import url('product-detail.css');
 @import url('cart-styles.css');
+@import url('checkout-page.css');
 @import url('about-page.css');
 @import url('blog-page.css');
 @import url('contact-page.css');
 @import url('responsive.css');
-
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');

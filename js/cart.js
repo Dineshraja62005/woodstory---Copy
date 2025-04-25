@@ -182,14 +182,25 @@ class CartManager {
     setupEventListeners() {
         // Event delegation for add to cart buttons
         document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('add-to-cart')) {
-                const productBox = e.target.closest('.box');
+            // Check if the clicked element or its parent has the add-to-cart class
+            const addToCartButton = e.target.closest('.add-to-cart');
+            if (addToCartButton) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const productBox = addToCartButton.closest('.box');
                 if (productBox) {
                     const productId = productBox.dataset.productId;
-                    const productName = productBox.querySelector('h3').textContent;
-                    const productPrice = parseFloat(productBox.querySelector('.price').textContent.replace('$', ''));
+                    const productName = productBox.querySelector('.content h3').textContent;
+                    const productPrice = parseFloat(productBox.querySelector('.content .price').textContent.replace('$', ''));
                     const productImage = productBox.querySelector('.image img').src;
                     
+                    if (!productId || !productName || isNaN(productPrice)) {
+                        console.error('Invalid product data');
+                        return;
+                    }
+                    
+                    // Create product object
                     const product = {
                         id: productId,
                         name: productName,
@@ -238,8 +249,7 @@ class CartManager {
     }
 }
 
-// Initialize cart manager
-const cartManager = new CartManager();
-
-// Export cart manager for use in other files
-window.cartManager = cartManager;
+// Initialize cart manager only if it doesn't already exist
+if (!window.cartManager) {
+    window.cartManager = new CartManager();
+}

@@ -1,0 +1,100 @@
+/* Team Page Styles */
+
+/* Team Section */
+.team .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: var(--border-radius-lg);
+    background-color: var(--section-bg);
+}
+
+.team .box-container .box {
+    position: relative;
+    overflow: hidden;
+    border: 0.1rem solid var(--light-secondary);
+    border-radius: var(--border-radius-md);
+    background: var(--card-bg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team .box-container .box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow);
+}
+
+.team .box-container .box:hover .image img {
+    transform: scale(1.2);
+}
+
+.team .box-container .box:hover .share {
+    left: 0;
+}
+
+.team .box-container .box .share {
+    width: 7rem;
+    height: 47.5rem;
+    position: absolute;
+    top: 1%;
+    left: -8.5rem;
+    z-index: 10;
+    margin: 2%;
+    margin-left: 3.5%;
+    border-radius: 1.5rem;
+    background: var(--section-bg);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: .7rem;
+    transition: left 0.3s ease;
+}
+
+.team .box-container .box .share a {
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2.2rem;
+    color: var(--dark-text);
+    background: var(--accent);
+    text-align: center;
+    border-radius: 50%;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.team .box-container .box .share a:hover {
+    color: var(--accent);
+    background: var(--dark-text);
+}
+
+.team .box-container .box .image {
+    height: 50rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.team .box-container .box .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.team .box-container .box .user {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card-bg);
+}
+
+.team .box-container .box .user h3 {
+    font-size: 2rem;
+    color: var(--dark-text);
+}
+
+.team .box-container .box .user span {
+    font-size: 1.5rem;
+    color: var(--secondary);
+}
