@@ -1,0 +1,227 @@
+/* Base styles, variables, resets, and utilities */
+
+:root {
+    /* Colors */
+    --primary: #5e473e;
+    --secondary: #b58d7e;
+    --light-primary: #845f51;
+    --light-secondary: #caab9f;
+    --background: #faf7f6;
+    --section-bg: #f0e8e4;
+    --card-bg: #f5eeeb;
+    --accent: #e1cec7;
+    --white: #ffffff;
+    --light-text: #b58d7e;
+    --dark-text: #5e473e;
+    
+    /* Spacing */
+    --section-padding: 3rem 9%;
+    --border-radius-sm: 0.75rem;
+    --border-radius-md: 2rem;
+    --border-radius-lg: 3rem;
+    
+    /* Shadows */
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --overlay-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--accent);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+}
+
+body {
+    background-color: var(--background);
+}
+
+section {
+    padding: var(--section-padding);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark-text);
+}
+
+p {
+    font-size: 1.6rem;
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+/* Common components */
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, var(--secondary), var(--light-primary));
+    color: var(--white);
+    cursor: pointer;
+    border-radius: var(--border-radius-sm);
+}
+
+.btn:hover {
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--light-primary), var(--secondary));
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    font-size: 1.5rem;
+    border: 1px solid var(--secondary);
+    border-radius: var(--border-radius-sm);
+    background: transparent;
+    color: var(--dark-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+/* Section heading */
+.heading {
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    margin: 2%;
+    border-radius: var(--border-radius-lg);
+}
+
+.heading h3 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: var(--dark-text);
+}
+
+.heading p {
+    font-size: 2rem;
+    color: var(--dark-text);
+}
+
+.heading p a {
+    color: var(--dark-text);
+}
+
+.heading p a:hover {
+    color: var(--light-primary);
+}
+
+/* Section title */
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    border-bottom: 0.1rem solid var(--dark-text);
+    padding-bottom: 1.5rem;
+}
+
+.title span {
+    font-size: 2.5rem;
+    color: var(--dark-text);
+}
+
+.title a {
+    font-size: 1.5rem;
+    color: var(--light-text);
+}
+
+.title a:hover {
+    transform: translateX(-3px);
+    color: var(--light-primary);
+}
+
+/* Animations */
+@keyframes fadeOut {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeLeft {
+    0% {
+        transform: translateX(-5rem);
+        opacity: 0;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Message boxes */
+.message {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    display: none;
+}
+
+.message.error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+    display: block;
+}
+
+.message.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+    display: block;
+}
+
+.message.info {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    border: 1px solid #90caf9;
+    display: block;
+}
+
+/* Utility classes */
+.hidden-form {
+    display: none !important;
+}
+
+.active-form {
+    display: block;
+}

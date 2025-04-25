@@ -1,0 +1,82 @@
+/* About Page Styles */
+
+/* About Section */
+.about {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2%;
+    border-radius: var(--border-radius-lg);
+    background-color: var(--section-bg);
+}
+
+.about .image {
+    flex: 1 1 40rem;
+}
+
+.about .image img {
+    border-radius: var(--border-radius-md);
+    width: 100%;
+}
+
+.about .content {
+    flex: 1 1 40rem;
+}
+
+.about .content span {
+    font-size: 2rem;
+    color: var(--secondary);
+}
+
+.about .content h3 {
+    font-size: 2.5rem;
+    color: var(--dark-text);
+    padding-top: 1rem;
+}
+
+.about .content p {
+    font-size: 1.4rem;
+    color: var(--secondary);
+    padding: 1rem 0;
+    line-height: 2;
+}
+
+/* Services Section */
+.services .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.services .box-container .box {
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--section-bg);
+    border-radius: var(--border-radius-md);
+}
+
+.services .box-container .box:hover {
+    box-shadow: var(--box-shadow);
+}
+
+.services .box-container .box:hover img {
+    transform: translateY(-3px);
+}
+
+.services .box-container .box img {
+    font-size: 8rem;
+    margin-bottom: 1rem;
+}
+
+.services .box-container .box h3 {
+    font-size: 2.2rem;
+    color: var(--dark-text);
+}
+
+.services .box-container .box p {
+    font-size: 1.4rem;
+    color: var(--secondary);
+    line-height: 2;
+    padding: 1rem 0;
+}

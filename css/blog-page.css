@@ -1,0 +1,87 @@
+/* Blog Page Styles */
+
+/* Blog Section */
+.blog .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: var(--border-radius-lg);
+    background-color: var(--section-bg);
+}
+
+.blog .box-container .box {
+    border: 0.1px solid var(--light-secondary);
+    border-radius: var(--border-radius-md);
+    background: var(--card-bg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog .box-container .box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow);
+}
+
+.blog .box-container .box:hover .image img {
+    transform: scale(1.2);
+}
+
+.blog .box-container .box .image {
+    height: 25rem;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+}
+
+.blog .box-container .box .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog .box-container .box .content {
+    padding: 1.5rem 2rem;
+}
+
+.blog .box-container .box .content h3 {
+    font-size: 2rem;
+    color: var(--dark-text);
+    margin-bottom: 1rem;
+}
+
+.blog .box-container .box .content p {
+    font-size: 1.4rem;
+    color: var(--secondary);
+    line-height: 2;
+    padding: 1rem 0;
+}
+
+.blog .box-container .box .content .btn {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.blog .box-container .box .content .icons {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 0.1rem solid var(--dark-text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.blog .box-container .box .content .icons a {
+    font-size: 1.4rem;
+    color: var(--secondary);
+    transition: color 0.3s ease;
+}
+
+.blog .box-container .box .content .icons a:hover {
+    color: var(--light-primary);
+}
+
+.blog .box-container .box .content .icons a i {
+    padding-right: .5rem;
+    color: var(--dark-text);
+}

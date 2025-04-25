@@ -1,0 +1,129 @@
+/* Home Page Styles */
+
+/* Hero Slider */
+.home {
+    position: relative;
+    margin: 2%;
+    border-radius: var(--border-radius-lg);
+    background-color: var(--section-bg);
+}
+
+.home .slides-container .slide {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    display: none;
+}
+
+.home .slides-container .slide.active {
+    display: flex;
+}
+
+.home .slides-container .slide .content {
+    flex: 1 1 40rem;
+    animation: fadeLeft .4s linear .4s backwards;
+}
+
+.home .slides-container .slide .content span {
+    font-size: 2.5rem;
+    color: var(--secondary);
+}
+
+.home .slides-container .slide .content h3 {
+    font-size: 6rem;
+    color: var(--dark-text);
+}
+
+.home .slides-container .slide .content p {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    padding: .5rem 0;
+    line-height: 2;
+}
+
+.home .slides-container .slide .image {
+    flex: 1 1 40rem;
+    padding: 3rem 0;
+}
+
+.home .slides-container .slide .image img {
+    width: 100%;
+    animation: fadeOut .4s linear;
+}
+
+.home #slide-next,
+.home #slide-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--light-primary);
+    background: var(--accent);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.home #slide-next:hover,
+.home #slide-prev:hover {
+    background: var(--light-primary);
+    color: var(--accent);
+}
+
+.home #slide-next {
+    right: 2rem;
+}
+
+.home #slide-prev {
+    left: 2rem;
+}
+
+/* Banner Section */
+.banner-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.banner-container .banner {
+    height: 25rem;
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--border-radius-lg);
+}
+
+.banner-container .banner img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.banner-container .banner:hover img {
+    transform: scale(1.2);
+}
+
+.banner-container .banner .content {
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+}
+
+.banner-container .banner .content span {
+    font-size: 1.7rem;
+    color: var(--secondary);
+}
+
+.banner-container .banner .content h3 {
+    padding-top: .5rem;
+    font-size: 2.2rem;
+    color: var(--dark-text);
+}
+
+.banner-container .banner .content .btn {
+    padding: .7rem 2.5rem;
+}
