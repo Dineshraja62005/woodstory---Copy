@@ -564,6 +564,47 @@
     <script src="js/cart.js"></script>
     <script src="js/checkout.js"></script> <script src="js/auth.js"></script>
     <script src="js/login.js"></script>
+    <script>
+        // Get the form element
+        const form = document.getElementById('checkout-form');
+      
+        // Add an event listener for the form submission
+        form.addEventListener('submit', function(event) {
+          // Prevent the default form submission
+          event.preventDefault();
+      
+          // --- Placeholder for Order Processing ---
+          // IMPORTANT: You would normally add code here to send the
+          // form data to your backend server to actually create the order.
+          // For example, using the fetch API:
+          /*
+          const formData = new FormData(form);
+          fetch('/api/create-order', { // Replace '/api/create-order' with your actual backend endpoint
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log('Order placed:', data);
+            // Redirect ONLY after successful order processing
+            alert('Order placed successfully! Redirecting to homepage.'); // Optional: notify user
+            window.location.href = '/'; // Or '/index.html' or your actual homepage URL
+          })
+          .catch(error => {
+            console.error('Error placing order:', error);
+            alert('There was an error placing your order. Please try again.');
+          });
+          */
+          // --- End Placeholder ---
+      
+          // For now, we'll just show an alert and redirect immediately.
+          // Remove this alert once you have backend processing.
+          alert('Order placed successfully! Redirecting to homepage.');
+      
+          // Redirect to the homepage
+          // Replace '/' with the actual path to your homepage if it's different (e.g., '/index.html')
+        });
+      </script>
 
     </body>
 </html>
