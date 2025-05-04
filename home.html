@@ -70,94 +70,156 @@
         
     <!-- shopping cart end  -->    
 
-    <!-- login form start  -->
-<div class="login-form">
-    <div class="form-container">
-        <!-- Login Form -->
-        <form id="loginForm" class="auth-form active-form">
-            <h3>Login to WoodStory</h3>
-            <div id="loginMessage" class="message auth-message"></div>
-            
-            <div class="input-group">
-                <input type="email" name="email" placeholder="Enter your email" class="box" required>
-            </div>
-            
-            <div class="input-group password-toggle">
-                <input type="password" name="password" placeholder="Enter your password" class="box" required>
-                <span class="toggle-password">Show</span>
-            </div>
-            
-            <div class="remember-container">
-                <div class="remember">
-                    <input type="checkbox" name="remember" id="remember-me">
-                    <label for="remember-me">Remember me</label>
+    <!-- Modern Login Form -->
+    <div class="login-form">
+        <div class="form-container">
+            <!-- Login Form -->
+            <form id="loginForm" class="active-form">
+                <div class="form-header">
+                    <h3>Welcome Back</h3>
+                    <p class="form-subtitle">Enter your credentials to access your account</p>
                 </div>
-                <a href="#" id="showReset" class="forgot-password">Forgot password?</a>
-            </div>
-            
-            <button type="submit" class="btn">Login</button>
-            
-            <div class="form-footer">
-                <p>Don't have an account? <a href="#" id="showRegister">Register now</a></p>
-            </div>
-        </form>
+                
+                <div id="loginMessage" class="message"></div>
+                
+                <div class="input-group">
+                    <label for="login-email">Email</label>
+                    <div class="input-with-icon">
+                        <i class="ri-mail-line"></i>
+                        <input type="email" id="login-email" name="email" placeholder="yourname@example.com" class="box" required>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <div class="input-with-icon password-toggle">
+                        <i class="ri-lock-line"></i>
+                        <input type="password" id="login-password" name="password" placeholder="••••••••" class="box" required>
+                        <span class="toggle-password"><i class="ri-eye-line"></i></span>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <div class="remember">
+                        <input type="checkbox" name="remember" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <a href="#" id="showReset" class="forgot-password">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Sign In</button>
+                
+                <div class="divider">
+                    <span>or continue with</span>
+                </div>
+                
+                <div class="social-login">
+                    <button type="button" class="social-btn google">
+                        <i class="ri-google-fill"></i>
+                    </button>
+                    <button type="button" class="social-btn facebook">
+                        <i class="ri-facebook-fill"></i>
+                    </button>
+                    <button type="button" class="social-btn twitter">
+                        <i class="ri-twitter-fill"></i>
+                    </button>
+                </div>
+                
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#" id="showRegister">Sign up now</a></p>
+                </div>
+            </form>
 
-        <!-- Registration Form -->
-        <form id="registerForm" class="auth-form hidden-form">
-            <h3>Create Account</h3>
-            <div id="registerMessage" class="message auth-message"></div>
-            
-            <div class="input-group">
-                <input type="text" name="name" placeholder="Enter your full name" class="box" required>
-            </div>
-            
-            <div class="input-group">
-                <input type="email" name="email" placeholder="Enter your email" class="box" required>
-            </div>
-            
-            <div class="input-group password-toggle">
-                <input type="password" name="password" placeholder="Create a password" class="box" required>
-                <span class="toggle-password">Show</span>
-            </div>
-            
-            <div class="input-group password-toggle">
-                <input type="password" name="confirmPassword" placeholder="Confirm password" class="box" required>
-                <span class="toggle-password">Show</span>
-            </div>
-            
-            <div class="terms">
-                <input type="checkbox" name="terms" id="terms-agree" required>
-                <label for="terms-agree">I agree to the <a href="#">terms and conditions</a></label>
-            </div>
-            
-            <button type="submit" class="btn">Register</button>
-            
-            <div class="form-footer">
-                <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
-            </div>
-        </form>
+            <!-- Registration Form -->
+            <form id="registerForm" class="hidden-form">
+                <div class="form-header">
+                    <h3>Create Account</h3>
+                    <p class="form-subtitle">Join WoodStory and discover amazing furniture</p>
+                </div>
+                
+                <div id="registerMessage" class="message"></div>
+                
+                <div class="input-group">
+                    <label for="register-name">Full Name</label>
+                    <div class="input-with-icon">
+                        <i class="ri-user-line"></i>
+                        <input type="text" id="register-name" name="name" placeholder="John Doe" class="box" required>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="register-email">Email</label>
+                    <div class="input-with-icon">
+                        <i class="ri-mail-line"></i>
+                        <input type="email" id="register-email" name="email" placeholder="yourname@example.com" class="box" required>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="register-password">Password</label>
+                    <div class="input-with-icon password-toggle">
+                        <i class="ri-lock-line"></i>
+                        <input type="password" id="register-password" name="password" placeholder="••••••••" class="box" required>
+                        <span class="toggle-password"><i class="ri-eye-line"></i></span>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-meter">
+                            <div class="strength-segment"></div>
+                            <div class="strength-segment"></div>
+                            <div class="strength-segment"></div>
+                            <div class="strength-segment"></div>
+                        </div>
+                        <span class="strength-text">Password strength</span>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <div class="input-with-icon password-toggle">
+                        <i class="ri-lock-line"></i>
+                        <input type="password" id="register-confirm-password" name="confirmPassword" placeholder="••••••••" class="box" required>
+                        <span class="toggle-password"><i class="ri-eye-line"></i></span>
+                    </div>
+                </div>
+                
+                <div class="terms">
+                    <input type="checkbox" name="terms" id="terms-agree" required>
+                    <label for="terms-agree">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Create Account</button>
+                
+                <div class="form-footer">
+                    <p>Already have an account? <a href="#" id="showLogin">Sign in</a></p>
+                </div>
+            </form>
 
-        <!-- Password Reset Form -->
-        <form id="resetForm" class="auth-form hidden-form">
-            <h3>Reset Password</h3>
-            <div id="resetMessage" class="message auth-message"></div>
-            
-            <p class="form-info">Enter your email address to receive password reset instructions.</p>
-            
-            <div class="input-group">
-                <input type="email" name="resetEmail" placeholder="Enter your email" class="box" required>
-            </div>
-            
-            <button type="submit" class="btn">Reset Password</button>
-            
-            <div class="form-footer">
-                <p>Remember your password? <a href="#" id="backToLogin">Back to login</a></p>
-            </div>
-        </form>
+            <!-- Password Reset Form -->
+            <form id="resetForm" class="hidden-form">
+                <div class="form-header">
+                    <h3>Reset Password</h3>
+                    <p class="form-subtitle">We'll send you instructions to reset your password</p>
+                </div>
+                
+                <div id="resetMessage" class="message"></div>
+                
+                <div class="input-group">
+                    <label for="reset-email">Email</label>
+                    <div class="input-with-icon">
+                        <i class="ri-mail-line"></i>
+                        <input type="email" id="reset-email" name="resetEmail" placeholder="yourname@example.com" class="box" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Send Reset Link</button>
+                
+                <div class="form-footer">
+                    <p>Remember your password? <a href="#" id="backToLogin">Back to login</a></p>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-<!-- login form end  -->
-
+    <!-- Modern login form end -->
 
     <!-- home section starts  -->
 
