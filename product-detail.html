@@ -6,39 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details - WoodStory</title>
 
-    <!-- Remix icon cdn link -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
 
-    <!-- Font awesome cdn link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <!-- Custom css file links -->
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/product-detail-modern.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+
 </head>
 
 <body>
-    <!-- Header Section -->
     <header class="header">
         <a href="home.html" class="logo"> <i class="ri-store-2-line"></i> WoodStory </a>
-
         <form action="#" class="search-form">
             <input type="search" placeholder="search here..." id="search-box">
             <label for="search-box" class="ri-search-line"></label>
         </form>
-
         <div class="icons">
             <div id="menu-btn" class="ri-menu-line"></div>
             <div id="search-btn" class="ri-search-line"></div>
             <div id="cart-btn" class="ri-shopping-cart-line"></div>
             <div id="login-btn" class="ri-user-line"></div>
-        </div>
+            </div>
     </header>
 
-    <!-- Closer Button -->
     <div id="closer" class="ri-close-line"></div>
 
-    <!-- Navbar -->
     <nav class="navbar">
         <a href="home.html">home</a>
         <a href="shop.html">shop</a>
@@ -48,165 +41,135 @@
         <a href="contact.html">contact</a>
     </nav>
 
-    <!-- Shopping Cart -->
     <div class="shopping-cart">
-        <!-- Cart items will be added dynamically -->
         <h3 class="total"> total : <span>$0.00</span> </h3>
         <a href="cart.html" class="btn">checkout cart</a>
     </div>
 
-    <!-- Login Form -->
     <div class="login-form">
-        <!-- Login form content -->
+        <div class="form-container">
+            <form id="loginForm" class="active-form">
+                <div class="form-header"><h3>Welcome Back</h3><p class="form-subtitle">Enter credentials</p></div>
+                <div id="loginMessage" class="message"></div>
+                <div class="input-group"><label for="login-email">Email</label><div class="input-with-icon"><i class="ri-mail-line"></i><input type="email" id="login-email" name="email" placeholder="yourname@example.com" class="box" required></div></div>
+                <div class="input-group"><label for="login-password">Password</label><div class="input-with-icon password-toggle"><i class="ri-lock-line"></i><input type="password" id="login-password" name="password" placeholder="••••••••" class="box" required><span class="toggle-password"><i class="ri-eye-line"></i></span></div></div>
+                <div class="form-options"><div class="remember"><input type="checkbox" name="remember" id="remember-me"><label for="remember-me">Remember me</label></div><a href="#" id="showReset" class="forgot-password">Forgot password?</a></div>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+                <div class="divider"><span>or continue with</span></div>
+                <div class="social-login"><button type="button" class="social-btn google"><i class="ri-google-fill"></i></button><button type="button" class="social-btn facebook"><i class="ri-facebook-fill"></i></button><button type="button" class="social-btn twitter"><i class="ri-twitter-fill"></i></button></div>
+                <div class="form-footer"><p>Don't have an account? <a href="#" id="showRegister">Sign up now</a></p></div>
+            </form>
+            <form id="registerForm" class="hidden-form">
+                 <div class="form-header"><h3>Create Account</h3><p class="form-subtitle">Join WoodStory</p></div><div id="registerMessage" class="message"></div><div class="input-group"><label for="register-name">Full Name</label><div class="input-with-icon"><i class="ri-user-line"></i><input type="text" id="register-name" name="name" placeholder="John Doe" class="box" required></div></div><div class="input-group"><label for="register-email">Email</label><div class="input-with-icon"><i class="ri-mail-line"></i><input type="email" id="register-email" name="email" placeholder="yourname@example.com" class="box" required></div></div><div class="input-group"><label for="register-password">Password</label><div class="input-with-icon password-toggle"><i class="ri-lock-line"></i><input type="password" id="register-password" name="password" placeholder="••••••••" class="box" required><span class="toggle-password"><i class="ri-eye-line"></i></span></div><div class="password-strength"><div class="strength-meter"><div class="strength-segment"></div><div class="strength-segment"></div><div class="strength-segment"></div><div class="strength-segment"></div></div><span class="strength-text">Password strength</span></div></div><div class="input-group"><label for="register-confirm-password">Confirm Password</label><div class="input-with-icon password-toggle"><i class="ri-lock-line"></i><input type="password" id="register-confirm-password" name="confirmPassword" placeholder="••••••••" class="box" required><span class="toggle-password"><i class="ri-eye-line"></i></span></div></div><div class="terms"><input type="checkbox" name="terms" id="terms-agree" required><label for="terms-agree">I agree to the <a href="#">Terms</a> & <a href="#">Privacy Policy</a></label></div><button type="submit" class="btn btn-primary">Create Account</button><div class="form-footer"><p>Already have an account? <a href="#" id="showLogin">Sign in</a></p></div>
+            </form>
+            <form id="resetForm" class="hidden-form">
+                 <div class="form-header"><h3>Reset Password</h3><p class="form-subtitle">Enter email for reset instructions</p></div><div id="resetMessage" class="message"></div><div class="input-group"><label for="reset-email">Email</label><div class="input-with-icon"><i class="ri-mail-line"></i><input type="email" id="reset-email" name="resetEmail" placeholder="yourname@example.com" class="box" required></div></div><button type="submit" class="btn btn-primary">Send Reset Link</button><div class="form-footer"><p>Remember password? <a href="#" id="backToLogin">Back to login</a></p></div>
+            </form>
+        </div>
     </div>
 
-    <!-- Heading Section -->
     <section class="heading">
         <h3>product details</h3>
-        <p> <a href="home.html">home</a> / <a href="shop.html">shop</a> / <span id="product-name-breadcrumb">bunny cushion sofa</span> </p>
+        <p> <a href="home.html">home</a> / <a href="shop.html">shop</a> / <span id="product-name-breadcrumb">Product Name</span> </p>
     </section>
 
-    <!-- Product Showcase Section -->
     <section class="product-showcase">
-        <!-- Left Column - Product Gallery -->
         <div class="product-gallery">
             <div class="gallery-main">
-                <img src="image/product-2.png" alt="Bunny Cushion Sofa" id="main-image">
+                <img src="image/placeholder.png" alt="Product Image" id="main-image" onerror="this.onerror=null;this.src='image/placeholder.png';">
             </div>
             <div class="gallery-thumbnails">
-                <div class="thumbnail active" data-image="image/product-2.png">
-                    <img src="image/product-2.png" alt="Bunny Cushion Sofa - Front View">
                 </div>
-                <div class="thumbnail" data-image="image/product-5.png">
-                    <img src="image/product-5.png" alt="Bunny Cushion Sofa - Side View">
-                </div>
-                <div class="thumbnail" data-image="image/product-3.png">
-                    <img src="image/product-3.png" alt="Bunny Cushion Sofa - Back View">
-                </div>
-                <div class="thumbnail" data-image="image/product-6.png">
-                    <img src="image/product-6.png" alt="Bunny Cushion Sofa - Detail View">
-                </div>
-            </div>
         </div>
 
-        <!-- Right Column - Product Info -->
         <div class="product-info">
             <div class="breadcrumb">
-                <a href="shop.html">Kids Furniture</a> / <a href="#">Sofas</a> / <span id="product-name-mini">Bunny Cushion Sofa</span>
+                <a href="shop.html">Category</a> /
+                <span id="product-name-mini">Product Name</span>
             </div>
-            
-            <h1 class="product-title" id="product-title">Bunny Cushion Sofa</h1>
-            <p class="product-subtitle">Premium quality children's furniture</p>
-            
-            <div class="product-price-container">
-                <div class="product-price" id="product-price">$140.00</div>
-                <div class="product-original-price">$175.00</div>
-                <div class="discount-badge">20% OFF</div>
-            </div>
-            
-            <div class="product-rating">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+
+            <h1 class="product-title" id="product-title">Product Name</h1>
+            <p class="product-subtitle">Product tagline or short description</p>
+
+            <div class="price-rating-row">
+                <div class="product-price-container">
+                    <span class="product-price" id="product-price">$0.00</span>
+                    </div>
+                <div class="product-rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <span class="review-count">(0 Reviews)</span>
+                    <a href="#reviews" class="write-review">Write a review</a>
                 </div>
-                <span class="review-count">(50 Reviews)</span>
-                <a href="#reviews" class="write-review">Write a review</a>
             </div>
-            
+
             <div class="product-description">
-                <p id="product-description">A cute and comfortable bunny-shaped cushion sofa, ideal for children's rooms and playful spaces. Made with premium soft fabric and filled with high-quality foam for maximum comfort.</p>
-            </div>
-            
-            <div class="product-features">
-                <ul>
-                    <li>Premium soft fabric cover</li>
-                    <li>High-density foam filling</li>
-                    <li>Removable and washable cover</li>
-                    <li>Non-slip bottom surface</li>
-                    <li>Child-friendly materials</li>
-                </ul>
-            </div>
-            
-            <div class="product-colors">
-                <h4>Available Colors</h4>
-                <div class="colors-container">
-                    <div class="color-option selected" style="background-color: #F8DFD2;" data-color="Pink"></div>
-                    <div class="color-option" style="background-color: #E1EBF2;" data-color="Blue"></div>
-                    <div class="color-option" style="background-color: #D8E4D5;" data-color="Green"></div>
-                    <div class="color-option" style="background-color: #F2E9D8;" data-color="Beige"></div>
+                <p id="description-placeholder">Loading product details...</p>
+                </div>
+
+            <div class="options-section">
+                <div class="product-colors">
+                    <h4>Available Colors</h4>
+                    <div class="colors-container">
+                        </div>
+                </div>
+                <div class="product-size">
+                    <h4>Size Options</h4>
+                    <div class="size-options">
+                         </div>
                 </div>
             </div>
-            
-            <div class="product-size">
-                <h4>Size Options</h4>
-                <div class="size-options">
-                    <div class="size-option">Small</div>
-                    <div class="size-option selected">Medium</div>
-                    <div class="size-option">Large</div>
+
+            <div class="actions-section">
+                <div class="quantity-selector">
+                    <label for="quantity">Quantity:</label>
+                    <div class="quantity-control">
+                        <button class="quantity-btn decrease" aria-label="Decrease quantity">-</button>
+                        <input type="number" id="quantity" class="quantity-input" value="1" min="1" max="10" aria-label="Quantity">
+                        <button class="quantity-btn increase" aria-label="Increase quantity">+</button>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button id="add-to-cart" class="btn add-to-cart-btn">
+                        <i class="ri-shopping-cart-line"></i> Add to Cart
+                    </button>
+                    <button id="add-to-wishlist" class="btn-icon wishlist-btn" aria-label="Add to Wishlist">
+                        <i class="ri-heart-line"></i>
+                    </button>
+                    <button class="btn-icon share-btn" aria-label="Share Product">
+                        <i class="ri-share-line"></i>
+                    </button>
                 </div>
             </div>
-            
-            <div class="quantity-selector">
-                <span>Quantity:</span>
-                <div class="quantity-control">
-                    <button class="quantity-btn decrease">-</button>
-                    <input type="number" id="quantity" class="quantity-input" value="1" min="1" max="10">
-                    <button class="quantity-btn increase">+</button>
-                </div>
+
+             <div class="delivery-info">
+                 <div class="delivery-info-item"><i class="ri-truck-line"></i><span>Free shipping over $100</span></div>
+                 <div class="delivery-info-item"><i class="ri-time-line"></i><span>Delivery in 3-5 days</span></div>
+                 <div class="delivery-info-item"><i class="ri-arrow-go-back-line"></i><span>30-day returns</span></div>
             </div>
-            
-            <div class="product-actions">
-                <button id="add-to-cart" class="add-to-cart-btn">
-                    <i class="ri-shopping-cart-line"></i> Add to Cart
-                </button>
-                <button id="add-to-wishlist" class="wishlist-btn">
-                    <i class="ri-heart-line"></i>
-                </button>
-                <button class="share-btn">
-                    <i class="ri-share-line"></i>
-                </button>
-            </div>
-            
-            <div class="delivery-info">
-                <div class="delivery-info-item">
-                    <i class="ri-truck-line"></i>
-                    <span>Free shipping on orders over $100</span>
-                </div>
-                <div class="delivery-info-item">
-                    <i class="ri-time-line"></i>
-                    <span>Delivery in 3-5 business days</span>
-                </div>
-                <div class="delivery-info-item">
-                    <i class="ri-arrow-go-back-line"></i>
-                    <span>30-day return policy</span>
-                </div>
-            </div>
-            
-            <div class="product-meta">
-                <div class="meta-item">
-                    <div class="meta-label">SKU:</div>
-                    <div class="meta-value">KID-SOFA-BUNNY-001</div>
-                </div>
-                <div class="meta-item">
-                    <div class="meta-label">Category:</div>
-                    <div class="meta-value"><a href="#">Kids Furniture</a>, <a href="#">Sofas</a></div>
-                </div>
-                <div class="meta-item">
-                    <div class="meta-label">Tags:</div>
-                    <div class="meta-value"><a href="#">bunny</a>, <a href="#">cushion</a>, <a href="#">children</a>, <a href="#">soft</a></div>
-                </div>
-                <div class="meta-item">
-                    <div class="meta-label">Availability:</div>
-                    <div class="meta-value">In Stock (12 items)</div>
-                </div>
+
+            <div class="product-meta-accordion">
+                 <details class="meta-item">
+                     <summary>SKU</summary>
+                     <div class="meta-value">N/A</div>
+                 </details>
+                 <details class="meta-item">
+                     <summary>Category</summary>
+                     <div class="meta-value"><a href="#">N/A</a></div>
+                 </details>
+                 <details class="meta-item">
+                     <summary>Tags</summary>
+                     <div class="meta-value"><a href="#">N/A</a></div>
+                 </details>
+                 <details class="meta-item">
+                     <summary>Availability</summary>
+                     <div class="meta-value">N/A</div>
+                 </details>
             </div>
         </div>
     </section>
 
-    <!-- Product Tabs Section -->
     <section class="product-tabs">
         <div class="tabs-nav">
             <button class="tab-btn active" data-tab="description">Description</button>
@@ -214,443 +177,34 @@
             <button class="tab-btn" data-tab="reviews">Reviews</button>
             <button class="tab-btn" data-tab="shipping">Shipping & Returns</button>
         </div>
-        
-        <!-- Description Tab -->
-        <div class="tab-content active" id="description">
-            <h3>Product Description</h3>
-            <p>Introduce your child to the world of comfort and imagination with our Bunny Cushion Sofa. This adorable bunny-shaped cushion sofa is designed to be the perfect companion for your little one's playtime, reading sessions, or relaxation moments.</p>
-            
-            <p>Made with premium soft fabric that's gentle on your child's skin, this cushion sofa features a high-density foam filling that provides the perfect balance of support and softness. The cute bunny ears and tail add a playful touch that children love, making this not just a piece of furniture but a cherished friend.</p>
-            
-            <p>The cover is removable and washable, making it easy to keep clean and fresh. The non-slip bottom ensures the sofa stays in place even during active play sessions. Designed with safety in mind, all materials are child-friendly and free from harmful chemicals.</p>
-            
-            <p>This Bunny Cushion Sofa is a versatile addition to any child's room, playroom, or nursery. It's not only a comfortable seating option but also serves as an adorable decorative element that enhances the room's whimsical atmosphere.</p>
-            
-            <p>Available in multiple colors and sizes to perfectly fit your space and match your decor.</p>
-        </div>
-        
-        <!-- Specifications Tab -->
-        <div class="tab-content" id="specifications">
-            <h3>Product Specifications</h3>
-            <div class="specifications-list">
-                <div class="spec-item">
-                    <div class="spec-name">Dimensions:</div>
-                    <div class="spec-value">24" Width x 18" Depth x 20" Height (Medium Size)</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-name">Weight:</div>
-                    <div class="spec-value">3.5 lbs</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-name">Cover Material:</div>
-                    <div class="spec-value">100% Polyester Plush Fabric</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-name">Filling:</div>
-                    <div class="spec-value">High-Density Foam</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-name">Color Options:</div>
-                    <div class="spec-value">Pink, Blue, Green, Beige</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-name">Size Options:</div>
-                    <div class="spec-value">Small (18"W x 14"D x 16"H), Medium (24"W x 18"D x 20"H), Large (30"W x 22"D x 24"H)</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-name">Bottom Material:</div>
-                    <div class="spec-value">Non-slip Silicone</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-name">Care Instructions:</div>
-                    <div class="spec-value">Cover: Machine washable in cold water, gentle cycle. Tumble dry low.</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-name">Age Recommendation:</div>
-                    <div class="spec-value">2+ years</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-name">Weight Capacity:</div>
-                    <div class="spec-value">Up to 132 lbs (60 kg)</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-name">Safety Certifications:</div>
-                    <div class="spec-value">OEKO-TEX® Standard 100, CPSIA Compliant</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-name">Package Includes:</div>
-                    <div class="spec-value">1 x Bunny Cushion Sofa, 1 x Care Instructions</div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Reviews Tab -->
-        <div class="tab-content" id="reviews">
-            <h3>Customer Reviews</h3>
-            <div class="reviews-container">
-                <div class="review-summary">
-                    <div class="average-rating">
-                        <div class="rating-number">4.8</div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="total-reviews">Based on 50 reviews</div>
-                    </div>
-                    <div class="rating-breakdown">
-                        <div class="rating-bar">
-                            <div class="rating-level">
-                                <i class="fas fa-star"></i>5
-                            </div>
-                            <div class="bar-container">
-                                <div class="bar-fill" style="width: 80%;"></div>
-                            </div>
-                            <div class="rating-count">40</div>
-                        </div>
-                        <div class="rating-bar">
-                            <div class="rating-level">
-                                <i class="fas fa-star"></i>4
-                            </div>
-                            <div class="bar-container">
-                                <div class="bar-fill" style="width: 16%;"></div>
-                            </div>
-                            <div class="rating-count">8</div>
-                        </div>
-                        <div class="rating-bar">
-                            <div class="rating-level">
-                                <i class="fas fa-star"></i>3
-                            </div>
-                            <div class="bar-container">
-                                <div class="bar-fill" style="width: 4%;"></div>
-                            </div>
-                            <div class="rating-count">2</div>
-                        </div>
-                        <div class="rating-bar">
-                            <div class="rating-level">
-                                <i class="fas fa-star"></i>2
-                            </div>
-                            <div class="bar-container">
-                                <div class="bar-fill" style="width: 0%;"></div>
-                            </div>
-                            <div class="rating-count">0</div>
-                        </div>
-                        <div class="rating-bar">
-                            <div class="rating-level">
-                                <i class="fas fa-star"></i>1
-                            </div>
-                            <div class="bar-container">
-                                <div class="bar-fill" style="width: 0%;"></div>
-                            </div>
-                            <div class="rating-count">0</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Individual Reviews -->
-                <div class="review">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">
-                                <img src="https://i.pravatar.cc/150?img=1" alt="Sarah Johnson">
-                            </div>
-                            <div>
-                                <div class="reviewer-name">Sarah Johnson</div>
-                                <div class="review-date">April 15, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="rating-text">5.0</div>
-                        </div>
-                    </div>
-                    <div class="review-content">
-                        <p>My daughter absolutely loves her bunny sofa! It's the perfect size for her to sit on while she reads or watches cartoons. The fabric is super soft and the quality is excellent. I've washed the cover once already and it came out perfect. Highly recommend for any child's room!</p>
-                    </div>
-                    <div class="review-images">
-                        <div class="review-image">
-                            <img src="image/product-2.png" alt="Customer Photo 1">
-                        </div>
-                        <div class="review-image">
-                            <img src="image/product-5.png" alt="Customer Photo 2">
-                        </div>
-                    </div>
-                    <div class="review-actions">
-                        <div class="review-action">
-                            <i class="ri-thumb-up-line"></i> Helpful (12)
-                        </div>
-                        <div class="review-action">
-                            <i class="ri-chat-1-line"></i> Comment
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="review">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">
-                                <img src="https://i.pravatar.cc/150?img=2" alt="Michael Thompson">
-                            </div>
-                            <div>
-                                <div class="reviewer-name">Michael Thompson</div>
-                                <div class="review-date">March 28, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="rating-text">5.0</div>
-                        </div>
-                    </div>
-                    <div class="review-content">
-                        <p>We bought this bunny sofa for our 3-year-old's playroom, and it's been a great addition. The size is perfect for toddlers, and the quality is much better than I expected. It's become his favorite spot to sit and play with his toys. The fact that the cover is removable and washable is a huge plus for us! Would definitely buy again.</p>
-                    </div>
-                    <div class="review-actions">
-                        <div class="review-action">
-                            <i class="ri-thumb-up-line"></i> Helpful (8)
-                        </div>
-                        <div class="review-action">
-                            <i class="ri-chat-1-line"></i> Comment
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="review">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">
-                                <img src="https://i.pravatar.cc/150?img=3" alt="Emily Rodriguez">
-                            </div>
-                            <div>
-                                <div class="reviewer-name">Emily Rodriguez</div>
-                                <div class="review-date">March 15, 2023</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <div class="rating-text">4.0</div>
-                        </div>
-                    </div>
-                    <div class="review-content">
-                        <p>The bunny sofa is very cute and my daughter loves it. The fabric is soft and the design is adorable. The only reason I'm giving it 4 stars instead of 5 is that it's a bit smaller than I expected. Make sure to check the dimensions before ordering. Otherwise, it's a wonderful product and my daughter uses it daily.</p>
-                    </div>
-                    <div class="review-actions">
-                        <div class="review-action">
-                            <i class="ri-thumb-up-line"></i> Helpful (5)
-                        </div>
-                        <div class="review-action">
-                            <i class="ri-chat-1-line"></i> Comment
-                        </div>
-                    </div>
-                </div>
-                
-                <button class="write-review-btn">Write a Review</button>
-            </div>
-        </div>
-        
-        <!-- Shipping Tab -->
-        <div class="tab-content" id="shipping">
-            <h3>Shipping Information</h3>
-            <p>We offer the following shipping options for all orders:</p>
-            <ul class="shipping-list">
-                <li>Standard Shipping (3-5 business days): $8.95</li>
-                <li>Express Shipping (2-3 business days): $14.95</li>
-                <li>Free Standard Shipping on all orders over $100</li>
-            </ul>
-            
-            <h3>Return Policy</h3>
-            <p>We want you to be completely satisfied with your purchase. If for any reason you're not happy with your order, we offer a simple return process:</p>
-            <ul class="shipping-list">
-                <li>Returns accepted within 30 days of delivery</li>
-                <li>Item must be unused and in original packaging</li>
-                <li>Return shipping costs are the responsibility of the customer unless the item is defective or we made an error</li>
-                <li>Refunds will be processed within 5-7 business days after we receive your return</li>
-            </ul>
-            
-            <p>To initiate a return, please contact our customer service team at <a href="mailto:support@woodstory.com">support@woodstory.com</a> or call us at (555) 123-4567.</p>
-        </div>
+        <div class="tab-content active" id="description"><h3>Product Description</h3></div>
+        <div class="tab-content" id="specifications"><h3>Product Specifications</h3><div class="specifications-list"></div></div>
+        <div class="tab-content" id="reviews"><h3>Customer Reviews</h3><div class="reviews-container"></div></div>
+        <div class="tab-content" id="shipping"><h3>Shipping & Returns</h3><p>Standard shipping/return details...</p></div>
     </section>
 
-    <!-- Related Products Section -->
     <section class="related-products">
-        <div class="title">
-            <h2>You May Also Like</h2>
-            <a href="shop.html">View All Products >></a>
-        </div>
-        
-        <div class="product-slider">
-            <!-- Related Product 1 -->
-            <div class="box" data-product-id="bear-sofa">
-                <div class="icons">
-                    <a href="javascript:void(0)" class="ri-shopping-cart-line add-to-cart"></a>
-                    <a href="#" class="ri-heart-line"></a>
-                    <a href="product-detail.html?product=bear-sofa" class="ri-eye-line"></a>
-                </div>
-                <div class="image">
-                    <img src="image/product-5.png" alt="Bear Cushion Sofa">
-                </div>
-                <div class="content">
-                    <div class="price">$140.00</div>
-                    <h3>Bear Cushion Sofa</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <span>(42)</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Related Product 2 -->
-            <div class="box" data-product-id="coconut-sofa">
-                <div class="icons">
-                    <a href="javascript:void(0)" class="ri-shopping-cart-line add-to-cart"></a>
-                    <a href="#" class="ri-heart-line"></a>
-                    <a href="product-detail.html?product=coconut-sofa" class="ri-eye-line"></a>
-                </div>
-                <div class="image">
-                    <img src="image/product-3.png" alt="Coconut Cushion Sofa">
-                </div>
-                <div class="content">
-                    <div class="price">$140.00</div>
-                    <h3>Coconut Cushion Sofa</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <span>(38)</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Related Product 3 -->
-            <div class="box" data-product-id="rainbow-chair">
-                <div class="icons">
-                    <a href="javascript:void(0)" class="ri-shopping-cart-line add-to-cart"></a>
-                    <a href="#" class="ri-heart-line"></a>
-                    <a href="product-detail.html?product=rainbow-chair" class="ri-eye-line"></a>
-                </div>
-                <div class="image">
-                    <img src="image/product-6.png" alt="Rainbow Rocking Chair">
-                </div>
-                <div class="content">
-                    <div class="price">$140.00</div>
-                    <h3>Rainbow Rocking Chair</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <span>(33)</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Related Product 4 -->
-            <div class="box" data-product-id="modern-chair">
-                <div class="icons">
-                    <a href="javascript:void(0)" class="ri-shopping-cart-line add-to-cart"></a>
-                    <a href="#" class="ri-heart-line"></a>
-                    <a href="product-detail.html?product=modern-chair" class="ri-eye-line"></a>
-                </div>
-                <div class="image">
-                    <img src="image/product-4.png" alt="Modern Wooden Chair">
-                </div>
-                <div class="content">
-                    <div class="price">$140.00</div>
-                    <h3>Modern Wooden Chair</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <span>(28)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="title"><h2>You May Also Like</h2><a href="shop.html">View All >></a></div>
+        <div class="product-slider"></div>
     </section>
 
-    <!-- Footer Section -->
     <section class="footer">
         <div class="box-container">
-            <div class="box">
-                <h3>quick links</h3>
-                <a href="home.html"> <i class="ri-arrow-right-line"></i> home </a>
-                <a href="shop.html"> <i class="ri-arrow-right-line"></i> shop </a>
-                <a href="about.html"> <i class="ri-arrow-right-line"></i> about </a>
-                <a href="team.html"> <i class="ri-arrow-right-line"></i> team </a>
-                <a href="blog.html"> <i class="ri-arrow-right-line"></i> blog </a>
-                <a href="contact.html"> <i class="ri-arrow-right-line"></i> contact </a>
-            </div>
-
-            <div class="box">
-                <h3>extra links</h3>
-                <a href="#"> <i class="ri-arrow-right-line"></i> my order </a>
-                <a href="#"> <i class="ri-arrow-right-line"></i> my wishlist </a>
-                <a href="#"> <i class="ri-arrow-right-line"></i> my account </a>
-                <a href="#"> <i class="ri-arrow-right-line"></i> my favorite </a>
-                <a href="#"> <i class="ri-arrow-right-line"></i> terms of user </a>
-            </div>
-
-            <div class="box">
-                <h3>follow us</h3>
-                <a href="#"> <i class="ri-facebook-fill"></i> facebook </a>
-                <a href="#"> <i class="ri-twitter-fill"></i> twitter </a>
-                <a href="#"> <i class="ri-instagram-fill"></i> instagram </a>
-                <a href="#"> <i class="ri-linkedin-box-fill"></i> linkedin </a>
-                <a href="#"> <i class="ri-pinterest-fill"></i> pinterest </a>
-            </div>
-
-            <div class="box">
-                <h3>newsletter</h3>
-                <p>subscribe for latest updates</p>
-                <form action="#">
-                    <input type="email" placeholder="enter your email">
-                    <input type="submit" value="subscribe" class="btn">
-                </form>
-            </div>
+            <div class="box"><h3>quick links</h3><a href="home.html"> <i class="ri-arrow-right-line"></i> home </a><a href="shop.html"> <i class="ri-arrow-right-line"></i> shop </a><a href="about.html"> <i class="ri-arrow-right-line"></i> about </a><a href="team.html"> <i class="ri-arrow-right-line"></i> team </a><a href="blog.html"> <i class="ri-arrow-right-line"></i> blog </a><a href="contact.html"> <i class="ri-arrow-right-line"></i> contact </a></div>
+            <div class="box"><h3>extra links</h3><a href="#"> <i class="ri-arrow-right-line"></i> my order </a><a href="#"> <i class="ri-arrow-right-line"></i> my wishlist </a><a href="#"> <i class="ri-arrow-right-line"></i> my account </a><a href="#"> <i class="ri-arrow-right-line"></i> my favorite </a><a href="#"> <i class="ri-arrow-right-line"></i> terms of user </a></div>
+            <div class="box"><h3>follow us</h3><a href="#"> <i class="ri-facebook-fill"></i> facebook </a><a href="#"> <i class="ri-twitter-fill"></i> twitter </a><a href="#"> <i class="ri-instagram-fill"></i> instagram </a><a href="#"> <i class="ri-linkedin-box-fill"></i> linkedin </a><a href="#"> <i class="ri-pinterest-fill"></i> pinterest </a></div>
+            <div class="box"><h3>newsletter</h3><p>subscribe for latest updates</p><form action="#"><input type="email" placeholder="enter your email"><input type="submit" value="subscribe" class="btn"></form></div>
         </div>
     </section>
+    <section class="credit">created by WoodStory | all rights reserved!</section>
 
-    <section class="credit">
-        created by WoodStory | all rights reserved!
-    </section>
+    <div class="cart-notification"></div>
 
-    <!-- Product Notification -->
-    <div class="product-notification">
-        <i class="ri-checkbox-circle-line"></i>
-        <span>Item added to your cart!</span>
-    </div>
-
-    <!-- Custom JS -->
     <script src="js/script.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/product-detail-modern.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/product-detail.js"></script>
+
 </body>
 </html>

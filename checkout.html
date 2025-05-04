@@ -7,67 +7,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - WoodStory</title>
 
-    <!-- remix icon cdn link  -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
 
-    <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <!-- custom css file link  -->
     <link rel="stylesheet" href="css/styles.css">
-    
+
     <style>
-        /* Checkout page specific styles */
+        /* Checkout page specific styles (Existing) */
         .checkout-container {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
         }
-        
+
         .checkout-form {
             flex: 1 1 60%;
-            background: #f0e8e4;
-            border-radius: 2rem;
-            padding: 2rem;
+            background: #f0e8e4; /* Existing background */
+            border-radius: 2rem; /* Existing border-radius */
+            padding: 2rem; /* Existing padding */
         }
-        
+
         .order-summary {
             flex: 1 1 30%;
-            background: #f0e8e4;
-            border-radius: 2rem;
-            padding: 2rem;
+            background: #f0e8e4; /* Existing background */
+            border-radius: 2rem; /* Existing border-radius */
+            padding: 2rem; /* Existing padding */
             align-self: flex-start;
         }
-        
+
         .form-section {
             margin-bottom: 2rem;
         }
-        
-        .form-section h3 {
+
+        .form-section h3, .order-summary h3 { /* Apply to order summary heading too */
             font-size: 2rem;
             color: #5e473e;
             margin-bottom: 1.5rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid #caab9f;
         }
-        
+
         .form-row {
             display: flex;
             gap: 1.5rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .form-group {
             flex: 1;
         }
-        
+
         .form-group label {
             display: block;
             font-size: 1.4rem;
             color: #845f51;
             margin-bottom: 0.5rem;
         }
-        
+
         .form-control {
             width: 100%;
             padding: 1rem;
@@ -77,14 +74,17 @@
             color: #5e473e;
             background-color: white;
         }
-        
+        .form-control.error { /* Style for validation errors */
+             border-color: #dc3545; /* Red border for errors */
+        }
+
         .payment-methods {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
             margin-top: 1rem;
         }
-        
+
         .payment-method {
             flex: 1 1 45%;
             padding: 1rem;
@@ -94,41 +94,64 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .payment-method:hover {
             background-color: #e1cec7;
         }
-        
+
         .payment-method.active {
             background-color: #5e473e;
             color: white;
             border-color: #5e473e;
         }
-        
+
         .payment-method i {
             font-size: 2rem;
             display: block;
             margin-bottom: 0.5rem;
         }
-        
+
         #place-order-btn {
             width: 100%;
             margin-top: 2rem;
             font-size: 1.8rem;
             padding: 1.2rem;
+            /* Assuming .btn class exists in styles.css */
         }
-        
+
         .order-items {
             margin-bottom: 2rem;
+            max-height: 25rem; /* Added max-height for scroll */
+            overflow-y: auto; /* Added scroll */
+            padding-right: 0.5rem; /* Space for scrollbar */
         }
-        
+         /* Basic scrollbar styling */
+        .order-items::-webkit-scrollbar {
+            width: 5px;
+        }
+        .order-items::-webkit-scrollbar-track {
+            background: #e1cec7;
+            border-radius: 10px;
+        }
+        .order-items::-webkit-scrollbar-thumb {
+            background: #845f51;
+            border-radius: 10px;
+        }
+        .order-items::-webkit-scrollbar-thumb:hover {
+            background: #5e473e;
+        }
+
+
         .order-item {
             display: flex;
             align-items: center;
             padding: 1rem 0;
             border-bottom: 1px solid #e1cec7;
         }
-        
+         .order-item:last-child {
+             border-bottom: none; /* Remove border from last item */
+         }
+
         .order-item-image {
             width: 6rem;
             height: 6rem;
@@ -136,25 +159,25 @@
             object-fit: cover;
             margin-right: 1rem;
         }
-        
+
         .order-item-details {
             flex: 1;
         }
-        
+
         .order-item-name {
             font-size: 1.5rem;
             color: #5e473e;
             margin-bottom: 0.2rem;
         }
-        
+
         .order-item-price {
             font-size: 1.4rem;
             color: #845f51;
         }
-        
+
         .order-item-quantity {
             font-size: 1.4rem;
-            color: #b58d7e;
+            color: #5e473e; /* Adjusted color for better contrast */
             margin-left: auto;
             background: #e1cec7;
             width: 2.5rem;
@@ -163,33 +186,139 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: bold;
         }
-        
+
+        .summary-totals-section { /* Wrapper for summary rows */
+             border-top: 1px solid #caab9f;
+             margin-top: 1rem;
+             padding-top: 1rem;
+        }
+
+        .summary-row {
+             display: flex;
+             justify-content: space-between;
+             padding: 0.8rem 0;
+             font-size: 1.5rem;
+        }
+        .summary-row span:first-child {
+             color: #845f51;
+        }
+         .summary-row span:last-child {
+             font-weight: bold;
+             color: #5e473e;
+         }
+
+        .summary-row.total {
+            font-weight: bold;
+            font-size: 1.8rem;
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+            border-top: 1px solid #caab9f; /* Add border above total */
+        }
+        .summary-row.total span:last-child {
+            color: #5e473e; /* Ensure total value color */
+        }
+
         @media (max-width: 768px) {
             .checkout-container {
                 flex-direction: column;
             }
-            
+
             .form-row {
                 flex-direction: column;
                 gap: 1rem;
+                margin-bottom: 1rem; /* Adjust gap */
+            }
+             .payment-method {
+                flex-basis: 100%; /* Full width on smaller screens */
             }
         }
+
+        /* --- Promo Code Section Styles --- */
+        .promo-code-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed #caab9f; /* Dashed line separator */
+        }
+
+        .promo-code-section label {
+            display: block;
+            font-size: 1.4rem; /* Match other labels */
+            color: #845f51;    /* Match other labels */
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .promo-input-group {
+            display: flex;
+            gap: 0.8rem; /* Space between input and button */
+            margin-bottom: 0.8rem;
+        }
+
+        #promo-code { /* Inherits .form-control styles */
+            flex-grow: 1; /* Input takes available space */
+        }
+
+        #apply-promo-btn { /* Inherits .btn styles from styles.css */
+            padding: 0 1.5rem; /* Adjust padding as needed */
+            font-size: 1.4rem; /* Adjust font size */
+            white-space: nowrap; /* Prevent button text wrapping */
+            flex-shrink: 0; /* Prevent button from shrinking */
+            height: auto; /* Ensure height matches input */
+            line-height: normal; /* Adjust line height if needed */
+        }
+
+        #apply-promo-btn:disabled {
+            background-color: #cccccc;
+            border-color: #cccccc; /* Match background */
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        /* Promo Code Message Styling */
+        .promo-message {
+            font-size: 1.3rem; /* Slightly smaller */
+            margin-top: 0.5rem;
+            min-height: 1.2em; /* Reserve space to prevent layout jumps */
+            font-weight: bold;
+        }
+
+        .promo-message.success {
+            color: #28a745; /* Bootstrap success green */
+        }
+
+        .promo-message.error {
+            color: #dc3545; /* Bootstrap danger red */
+        }
+        .promo-message.info {
+            color: #555; /* Dark grey for info */
+        }
+
+        /* Discount Row Styles */
+        .summary-row.discount-row {
+            color: #28a745; /* Match success green */
+        }
+        .summary-row.discount-row span:first-child {
+             color: #28a745; /* Make label green too */
+        }
+        .summary-row.discount-row span:last-child {
+            color: #28a745; /* Ensure value is green */
+            font-weight: bold;
+        }
+        /* --- End Promo Code Styles --- */
+
     </style>
 </head>
 
 <body>
 
-    <!-- header section starts  -->
-
     <header class="header">
         <a href="home.html" class="logo"> <i class="ri-store-2-line"></i> WoodStory </a>
-
         <form action="#" class="search-form">
             <input type="search" placeholder="search here..." id="search-box">
             <label for="search-box" class="ri-search-line"></label>
         </form>
-
         <div class="icons">
             <div id="menu-btn" class="ri-menu-line"></div>
             <div id="search-btn" class="ri-search-line"></div>
@@ -197,15 +326,7 @@
             <div id="login-btn" class="ri-user-line"></div>
         </div>
     </header>
-
-    <!-- header section ends  -->
-
-
-    <!-- closer btn  -->
-
     <div id="closer" class="ri-close-line"></div>
-
-    <!-- navbar start  -->
 
     <nav class="navbar">
         <a href="home.html">home</a>
@@ -215,25 +336,11 @@
         <a href="blog.html">blog</a>
         <a href="contact.html">contact</a>
     </nav>
-
-    <!-- navbar end  -->
-
-
-    <!-- shopping cart start  -->
-
     <div class="shopping-cart">
-        <!-- Cart items will be dynamically added here by cart.js -->
         <h3 class="total"> total : <span>$0.00</span> </h3>
-        <a href="cart.html" class="btn">checkout cart</a>
-    </div>
-
-    <!-- shopping cart end  -->
-
-
-    <!-- login form start  -->
+        <a href="cart.html" class="btn">view cart</a> <a href="#" class="btn checkout-from-cart" style="display: none;">checkout</a> </div>
     <div class="login-form">
         <div class="form-container">
-            <!-- Login Form -->
             <form id="loginForm" class="active-form">
                 <h3>Login</h3>
                 <div id="loginMessage" class="message"></div>
@@ -247,8 +354,6 @@
                 <p>Don't have an account? <a href="#" id="showRegister">Register now</a></p>
                 <p>Forgot password? <a href="#" id="showReset">Reset password</a></p>
             </form>
-
-            <!-- Registration Form -->
             <form id="registerForm" class="hidden-form">
                 <h3>Create Account</h3>
                 <div id="registerMessage" class="message"></div>
@@ -263,8 +368,6 @@
                 <input type="submit" value="Register" class="btn">
                 <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
             </form>
-
-            <!-- Password Reset Form -->
             <form id="resetForm" class="hidden-form">
                 <h3>Reset Password</h3>
                 <div id="resetMessage" class="message"></div>
@@ -275,20 +378,10 @@
             </form>
         </div>
     </div>
-    <!-- login form end  -->
-
-
-    <!-- heading section start -->
-
     <section class="heading">
         <h3>checkout</h3>
         <p> <a href="home.html">home</a> / <a href="cart.html">cart</a> / <span>checkout</span> </p>
     </section>
-
-    <!-- heading section end -->
-
-
-    <!-- Checkout Section Start -->
     <section class="checkout-detail">
         <div class="container">
             <div class="checkout-container">
@@ -299,44 +392,44 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="firstName">First Name</label>
-                                    <input type="text" id="firstName" class="form-control" required>
+                                    <input type="text" id="firstName" name="firstName" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="lastName">Last Name</label>
-                                    <input type="text" id="lastName" class="form-control" required>
+                                    <input type="text" id="lastName" name="lastName" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" id="email" class="form-control" required>
+                                    <input type="email" id="email" name="email" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
-                                    <input type="tel" id="phone" class="form-control" required>
+                                    <input type="tel" id="phone" name="phone" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="address">Address</label>
-                                <input type="text" id="address" class="form-control" required>
+                                <input type="text" id="address" name="address" class="form-control" required>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="city">City</label>
-                                    <input type="text" id="city" class="form-control" required>
+                                    <input type="text" id="city" name="city" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="state">State/Province</label>
-                                    <input type="text" id="state" class="form-control" required>
+                                    <input type="text" id="state" name="state" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="zip">Zip/Postal Code</label>
-                                    <input type="text" id="zip" class="form-control" required>
+                                    <input type="text" id="zip" name="zip" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="country">Country</label>
-                                <select id="country" class="form-control" required>
+                                <select id="country" name="country" class="form-control" required>
                                     <option value="">Select Country</option>
                                     <option value="US">United States</option>
                                     <option value="CA">Canada</option>
@@ -348,8 +441,11 @@
                                     <option value="JP">Japan</option>
                                 </select>
                             </div>
+                             <div class="form-group"> <label for="order-notes">Order Notes (Optional)</label>
+                                <textarea id="order-notes" name="orderNotes" class="form-control" rows="3"></textarea>
+                            </div>
                         </div>
-                        
+
                         <div class="form-section">
                             <h3>Payment Method</h3>
                             <div class="payment-methods">
@@ -361,79 +457,73 @@
                                     <i class="ri-paypal-line"></i>
                                     <span>PayPal</span>
                                 </div>
-                                <div class="payment-method" data-method="applePay">
-                                    <i class="ri-apple-fill"></i>
-                                    <span>Apple Pay</span>
                                 </div>
-                                <div class="payment-method" data-method="googlePay">
-                                    <i class="ri-google-fill"></i>
-                                    <span>Google Pay</span>
-                                </div>
-                            </div>
-                            
-                            <div id="creditCardForm" class="payment-form-container">
-                                <div class="form-row">
+
+                            <div id="creditCardForm" class="payment-form-container"> <div class="form-row">
                                     <div class="form-group">
                                         <label for="cardName">Name on Card</label>
-                                        <input type="text" id="cardName" class="form-control" placeholder="John Doe" required>
+                                        <input type="text" id="cardName" name="cardName" class="form-control" placeholder="John Doe">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label for="cardNumber">Card Number</label>
-                                        <input type="text" id="cardNumber" class="form-control" placeholder="1234 5678 9012 3456" required>
+                                        <input type="text" id="cardNumber" name="cardNumber" class="form-control" placeholder="1234 5678 9012 3456">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label for="expDate">Expiration Date</label>
-                                        <input type="text" id="expDate" class="form-control" placeholder="MM/YY" required>
+                                        <input type="text" id="expDate" name="expDate" class="form-control" placeholder="MM/YY">
                                     </div>
                                     <div class="form-group">
                                         <label for="cvv">CVV</label>
-                                        <input type="text" id="cvv" class="form-control" placeholder="123" required>
+                                        <input type="text" id="cvv" name="cvv" class="form-control" placeholder="123">
                                     </div>
                                 </div>
                             </div>
+                             <div id="paypalInfo" class="payment-form-container" style="display: none;"> <p>You will be redirected to PayPal to complete your payment.</p>
+                            </div>
                         </div>
-                        
+
                         <button type="submit" id="place-order-btn" class="btn">Place Order</button>
                     </form>
                 </div>
-                
+
                 <div class="order-summary">
                     <h3>Order Summary</h3>
                     <div id="order-items" class="order-items">
-                        <!-- Order items will be displayed here -->
+                        <p style="text-align: center; color: #845f51;">Loading cart...</p>
                     </div>
-                    
-                    <div class="summary-row">
-                        <span>Subtotal:</span>
-                        <span id="checkout-subtotal">$0.00</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Shipping:</span>
-                        <span id="checkout-shipping">$0.00</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Tax:</span>
-                        <span id="checkout-tax">$0.00</span>
-                    </div>
-                    <div class="summary-row total">
-                        <span>Total:</span>
-                        <span id="checkout-total">$0.00</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Checkout Section End -->
 
+                    <div class="summary-totals-section">
+                         <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="checkout-subtotal">$0.00</span>
+                        </div>
 
-    <!-- footer section start  -->
+                        <div class="promo-code-section">
+                            <label for="promo-code">Have a Promo Code?</label>
+                            <div class="promo-input-group">
+                                <input type="text" id="promo-code" placeholder="Enter code" class="form-control"> <button type="button" id="apply-promo-btn" class="btn">Apply</button> </div>
+                            <p id="promo-message" class="promo-message"></p> </div>
+                        <div class="summary-row discount-row" style="display: none;"> <span>Discount:</span>
+                            <span id="checkout-discount">-$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span id="checkout-shipping">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax (Est.):</span> <span id="checkout-tax">$0.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="checkout-total">$0.00</span>
+                        </div>
+                    </div> </div> </div> </div> </section>
     <section class="footer">
         <div class="box-container">
-
             <div class="box">
                 <h3>quick links</h3>
                 <a href="home.html"> <i class="ri-arrow-right-line"></i> home </a>
@@ -443,7 +533,6 @@
                 <a href="blog.html"> <i class="ri-arrow-right-line"></i> blog </a>
                 <a href="contact.html"> <i class="ri-arrow-right-line"></i> contact </a>
             </div>
-
             <div class="box">
                 <h3>extra links</h3>
                 <a href="#"> <i class="ri-arrow-right-line"></i> my order </a>
@@ -452,148 +541,29 @@
                 <a href="#"> <i class="ri-arrow-right-line"></i> my favorite </a>
                 <a href="#"> <i class="ri-arrow-right-line"></i> terms of user </a>
             </div>
-
             <div class="box">
-                <h3>extra links</h3>
-                <a href="#"> <i class="ri-facebook-fill"></i> facebook </a>
+                <h3>social links</h3> <a href="#"> <i class="ri-facebook-fill"></i> facebook </a>
                 <a href="#"> <i class="ri-twitter-fill"></i> twitter </a>
                 <a href="#"> <i class="ri-instagram-fill"></i> instagram </a>
                 <a href="#"> <i class="ri-linkedin-box-fill"></i> linkedin </a>
                 <a href="#"> <i class="ri-pinterest-fill"></i> pinterest </a>
             </div>
-
             <div class="box">
                 <h3>newsletter</h3>
                 <p>subscribe for latest updates</p>
                 <form action="#">
-                    <input type="email" name="" placeholder="enter your email" id="">
-                    <input type="submit" value="subscribe" class="btn">
+                    <input type="email" name="" placeholder="enter your email" id="newsletter-email" class="form-control"> <input type="submit" value="subscribe" class="btn">
                 </form>
             </div>
-
         </div>
     </section>
-
     <section class="credit">
         created by Code with Aarzoo | all rights reserved!
     </section>
-    <!-- footer section end  -->
-
-    <!-- custom js file link  -->
     <script src="js/script.js"></script>
-    
-    <!-- cart system js -->
     <script src="js/cart.js"></script>
-    
-    <!-- auth system js -->
-    <script src="js/auth.js"></script>
-    
-    <!-- login form js -->
-    <script src="js/login.js"></script>
-    
-    <!-- checkout page js -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get checkout form
-            const checkoutForm = document.getElementById('checkout-form');
-            
-            // Get payment methods
-            const paymentMethods = document.querySelectorAll('.payment-method');
-            
-            // Add event listeners to payment methods
-            paymentMethods.forEach(method => {
-                method.addEventListener('click', function() {
-                    // Remove active class from all methods
-                    paymentMethods.forEach(m => m.classList.remove('active'));
-                    
-                    // Add active class to selected method
-                    this.classList.add('active');
-                });
-            });
-            
-            // Handle form submission
-            checkoutForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get selected payment method
-                const selectedMethod = document.querySelector('.payment-method.active').dataset.method;
-                
-                // Simulate order processing
-                alert('Order placed successfully! Thank you for shopping with WoodStory.');
-                
-                // Clear cart and redirect to confirmation page
-                if (window.cartManager) {
-                    window.cartManager.clearCart();
-                }
-                
-                // Redirect to home page
-                window.location.href = 'home.html';
-            });
-            
-            // Populate order summary
-            function populateOrderSummary() {
-                if (!window.cartManager) return;
-                
-                const orderItems = document.getElementById('order-items');
-                const checkoutSubtotal = document.getElementById('checkout-subtotal');
-                const checkoutShipping = document.getElementById('checkout-shipping');
-                const checkoutTax = document.getElementById('checkout-tax');
-                const checkoutTotal = document.getElementById('checkout-total');
-                
-                // Clear order items
-                orderItems.innerHTML = '';
-                
-                // Get cart data
-                const cart = window.cartManager.cart;
-                
-                // Add cart items to order summary
-                cart.forEach(item => {
-                    const orderItem = document.createElement('div');
-                    orderItem.classList.add('order-item');
-                    
-                    orderItem.innerHTML = `
-                        <img src="${item.image}" alt="${item.name}" class="order-item-image">
-                        <div class="order-item-details">
-                            <div class="order-item-name">${item.name}</div>
-                            <div class="order-item-price">$${item.price.toFixed(2)}</div>
-                        </div>
-                        <div class="order-item-quantity">${item.quantity}</div>
-                    `;
-                    
-                    orderItems.appendChild(orderItem);
-                });
-                
-                // Calculate totals
-                const subtotal = window.cartManager.getCartTotal();
-                const shipping = subtotal > 100 ? 0 : 10;
-                const tax = subtotal * 0.07; // 7% tax
-                const total = subtotal + shipping + tax;
-                
-                // Update summary
-                checkoutSubtotal.textContent = `$${subtotal.toFixed(2)}`;
-                checkoutShipping.textContent = shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`;
-                checkoutTax.textContent = `$${tax.toFixed(2)}`;
-                checkoutTotal.textContent = `$${total.toFixed(2)}`;
-            }
-            
-            // Initialize
-            populateOrderSummary();
-        });
-
-        
-    </script>
-    <!-- cart system js -->
-    <script src="js/cart.js"></script>
-    
-    <!-- checkout js -->
-    <script src="js/checkout.js"></script>
-    
-    <!-- auth system js -->
-    <script src="js/auth.js"></script>
-    
-    <!-- login form js -->
+    <script src="js/checkout.js"></script> <script src="js/auth.js"></script>
     <script src="js/login.js"></script>
 
-</body>
-
+    </body>
 </html>
